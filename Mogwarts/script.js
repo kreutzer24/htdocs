@@ -2,7 +2,7 @@ const progressBar = document.getElementsByClassName('progress-bar')[0];
 
 // Funktion, um die Seite zu öffnen
 function redirectToHomePage() {
-  window.location.href = 'http://localhost/homepage.php';
+  window.location.href = 'http://localhost/Mogwarts/homepage.php';
 }
 
 // Intervall für die Aktualisierung der Breite des Fortschrittsbalkens

@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogInPage</title>
-    <link rel="stylesheet" href="stylelogin.css">
+    <link rel="stylesheet" href="../Style/stylelogin.css">
 </head>
 <header>
+    <a  href=""><img src="../img/uni.png"></a>
     <h2 class="logo">MOGWARTS UNIVERSITY</h2>
     <nav class="navigation">
-        <a href="#">Home</a>
+        <a href="Mogwarts/ladebalken.html">Home</a> 
+
     </nav>
 </header>
+
+
 
 <body>
     <div class="umrandung">
         <?php
         require ("connection.php");
-        session_start();
+        /*session_start();*/
 
         if (isset($_POST["submit"])) {
             $username = $_POST["username"];
@@ -49,22 +53,17 @@
                 header("Location: homepage.php");
             }
         }
-        if (isset($_POST["redirect"])) {
-            header("Location: register.php");
-        }
 
         ?>
-        
-        <form action="index.php" method="POST">
+        <form action="login.php" method="POST">
             <h1>Einloggen</h1>
             <div class="input_container">
                 <input type="text" placeholder="Benutzername" name="username" autocomplete="off">
                 <input type="text" placeholder="Passwort" name="password" autocomplete="off">
             </div>
             <button class="knopf" name="submit">Einloggen</button>
-            <button class="knopf"  name="redirect">Regestrieren</button>
+            <button class="knopf" name="redirect">Regestrieren</button>
         </form>
-    
 </body>
 
 </html>

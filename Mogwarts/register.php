@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT);
     $role = $_POST["role"];
-    $st_course = $_POST["st_course"];
+    //$st_course = $_POST["st_course"];
     $name = $_POST["name"];
     $sirname = $_POST["sirname"];
     $bday = $_POST["bday"];
@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
     $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
     $stmt->bindParam('username', $username);
     $stmt->execute();
-    // echo "username:$username";
+    echo "username:$username";
     //printf("Error: %s.\n", $stmt->error);
     //$result = $stmt->get_result();
 
@@ -58,7 +58,7 @@ if (isset($_POST["submit"])) {
     $stmt = $con->prepare("SELECT ID FROM benutzer WHERE Benutzername = :username");
     $stmt->bindParam('username', $username);
     $stmt->execute();
-   
+
     $userID = $stmt->fetchColumn();
 
     //Personendaten übertragung
@@ -113,7 +113,7 @@ if (isset($_POST["submit"])) {
         //     $st_course,
         //     $userAdressID
         $stmt->execute();
-        
+        printf("Error: %s.\n", $stmt->error);
     } else
         if ($role === '2') {
             $stmt = $con->prepare("INSERT INTO dozent (Vorname, Name, Geburtsdatum, Geschlecht, Konfession, Staatsangehörigkeit, ID, Adress_ID) VALUE (:vorname, :namen, :geburtsdatum, :geschlecht, :konfession, :staatsangehoerigkeit, :id, :adressID)");
@@ -149,60 +149,62 @@ if (isset($_POST["submit"])) {
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regestrierung</title>
-    <link rel="stylesheet" href="styleregister.css">
+    <section class="header">
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Regestrierung</title>
+        <link rel="stylesheet" href="../Style/styleregister.css">
 </head>
 
 <body>
     <div class="umrandung">
-    <form action="register.php" method="POST">
-        <h1>Registrieren</h1>
-        <div class="input_container">
-            <!-- Account spezifische Daten-->
-            <p>Account</p>
-            <input type="text" placeholder="Benutzername" name="username" autocomplete="off">
-            <input type="password" placeholder="Passwort" name="password" autocomplete="off">
-            <select class="knopfz" name="role" size="1">
-                <option value="1" name="student" required>Student</option>
-                <option value="2" name="dozent" required>Dozent</option>
-                <option value="3" name="admin" requrired>Admin</option>
-                
-            </select>
-            <input type="text" placeholder="Studiengang" name="st_course" autocomplete="on">
-            <br>
-            <br>
-            <!--Personen bezogene Daten (Student/ Dozent) -->
+        <form action="register.php" method="POST">
+
+            <h1>Registrieren</h1>
+            <div class="input_container">
+                <!-- Account spezifische Daten-->
+                <p>Account</p>
+                <input type="text" placeholder="Benutzername" name="username" autocomplete="off">
+                <input type="text" placeholder="Passwort" name="password" autocomplete="off">
+                <select class="knopfz"  name="role" size="1">
+                    <option value="1" name="student" required>Student</option>
+                    <option value="2" name="dozent" required>Dozent</option>
+                    <option value="3" name="admin" requrired>Admin</option>
+                </select>
+
+                <br>
+                <br>
+                <!--Personen bezogene Daten (Student/ Dozent) -->
 
 
-            <input type="text" name="name" placeholder="Vorname">
-            <input type="text" name="sirname" placeholder="Nachname">
+                <input type="text" name="name" placeholder="Vorname">
+                <input type="text" name="sirname" placeholder="Nachname">
 
-            <input class="knopfz" type="date" name="bday">
-            <select class="knopfz" name="gender" size="1">
-                <option>-</option>
-                <option value="Männlich" name="male">Männlich</option>
-                <option value="Weiblich" name="female">Weiblich</option>
-                <option value="Divers" name="divers">Divers</option>
-            </select>
-            <br>
-            <input type="text" name="confession" placeholder="Konfession">
-            <input type="text" name="nationality" placeholder="Staatsangehörigkeit">
-            <br>
-            <!--Adresse/ PLZ-->
-            <input type="text" name="straße" placeholder="Straße">
-            <input type="text" name="hausnummer" placeholder="Hausnummer">
-            <input type="text" name="plz" placeholder="PLZ">
-            <input type="text" name="ort" placeholder="Ort">
-            <br>
-            <input class="knopfz" type="submit" name="submit" value="Hinzufügen">
+                <input class="knopfz" type="date" name="bday">
+                <select class="knopfz" name="gender" size="1">
+                    <option>Geschlecht</option>
+                    <option value="Männlich" name="male">Männlich</option>
+                    <option value="Weiblich" name="female">Weiblich</option>
+                    <option value="Divers" name="divers">Divers</option>
+                </select>
+                <br>
+                <input type="text" name="confession" placeholder="Konfession">
+                <input type="text" name="nationality" placeholder="Staatsangehörigkeit">
+                <br>
+                <!--Adresse/ PLZ-->
+                <input type="text" name="straße" placeholder="Straße">
+                <input type="text" name="hausnummer" placeholder="Hausnummer">
+                <input type="text" name="plz" placeholder="PLZ">
+                <input type="text" name="ort" placeholder="Ort">
+                <br>
+                <input class="knopfz" type="submit" name="submit" value="Hinzufügen">
 
-        </div>
-        <button class="knopfz" name="redirect">Zurück</button>
-        <button class="knopfz" name="test">Test</button>
-    </form>
+            </div>
+            <button class="knopfz" name="redirect">Zurück</button>
+
+        </form>
 </body>
 
 </html>
