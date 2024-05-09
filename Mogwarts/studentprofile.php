@@ -1,5 +1,6 @@
 <h1>Dein Profil</h1>
 <?php
+require "connection.php";
 $userID = $_GET["ID"];
 
 $stmt = $con->prepare("SELECT student.Martikelnummer, student.Vorname, student.Name, student.Geburtsdatum, student.Geschlecht, student.Konfession, student.Staatsangehörigkeit, studiengang.Bezeichnung, adresse.Straße, adresse.Hausnummer, plz.PLZ, plz.Ort
