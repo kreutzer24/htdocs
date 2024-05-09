@@ -55,7 +55,7 @@
         }
 
         ?>
-        <form action="login.php" method="POST">
+        <form action="index.php" method="POST">
             <h1>Einloggen</h1>
             <div class="input_container">
                 <input type="text" placeholder="Benutzername" name="username" autocomplete="off">
