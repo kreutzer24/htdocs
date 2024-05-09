@@ -1,7 +1,3 @@
-body {
-  background-color: darkslategray;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -18,17 +14,13 @@ header {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
-  Left: 0;
+  left: 0;
   width: 100%;
   padding: 2%;
-  background: rgba(0, 0, 0, 0.493);;
+  background: rgba(0, 0, 0, 0.493);
   color: #fff;
   justify-content: space-between;
   z-index: 99;
-}
-
-img{
-  width: 100px;
 }
 
 .logo {
@@ -38,15 +30,15 @@ img{
 }
 
 .navigation a {
-position:relative;
-font-size: 1.1em;
-color: #fff;
-text-decoration: none;  
-font-weight: 500;
-margin-left: 40px;
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
 }
 
-.navigation a::after{
+.navigation a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -60,61 +52,37 @@ margin-left: 40px;
   transition: transform .5s;
 }
 
-.navigation a:hover:after{
+.navigation a:hover:after {
   transform-origin: left;
   transform: scaleX(1)
 }
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.scrollable-section {
   min-height: 100vh;
-  background: url(../img/Uni2.png) no-repeat;
-  background-size: cover;
-  background-position: center;
   position: relative;
 }
 
-.umrandung {
-  width: auto;
-  background: transparent;
-  border: 2px solid;
-  backdrop-filter: blur(15px);
+.scrollable-section img {
+  width: 100%;
+  height: auto;
+}
+
+.footer-text {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Übergangseffekt für die Sichtbarkeit */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
-  border-radius: 20px;
-  padding: 5%;
-}
-
-
-input[type=text],
-input[type=Password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: rgba(211, 211, 211, 0.315);
-  border-radius: 10px;
-  color: white;
-}
-
-::placeholder {
-  color: white;
-}
-
-.umrandung h1,
-p {
-  font-size: 36px;
   text-align: center;
+  font-size: 20px;
+  line-height: 1.5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.knopf {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 36px;
-  width: 100%;
-  border-radius: 10px;
-  background-color: rgba(211, 211, 211, 0.697);
-  color: white;
-  border: none;
+.footer-text.visible {
+  opacity: 1; /* Text wird sichtbar, wenn die Klasse 'visible' angewendet wird */
 }
