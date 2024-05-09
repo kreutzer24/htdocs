@@ -38,7 +38,7 @@ body {
 
 .knopfz {
 margin-top: 10px;
-margin-bottom: 10px ;
+margin-bottom: 10px;
 height:36px;
 width: 80%;
 margin:auto;
@@ -68,6 +68,6 @@ input[type=Password] {
 }
 
 ::placeholder{
-  color:white;
+  color:rgb(255, 255, 255);
 }
 

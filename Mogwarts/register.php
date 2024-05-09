@@ -200,7 +200,6 @@ if (isset($_POST["submit"])) {
                 <input type="text" name="ort" placeholder="Ort">
                 <br>
                 <input class="knopfz" type="submit" name="submit" value="Hinzufügen">
-
             </div>
             <button class="knopfz" name="redirect">Zurück</button>
 
