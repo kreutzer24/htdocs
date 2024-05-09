@@ -155,7 +155,7 @@ if (isset($_POST["submit"])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Regestrierung</title>
-        <link rel="stylesheet" href="../Style/styleregister.css">
+        <link rel="stylesheet" href="../Style/styleregister1.css">
 </head>
 
 <body>
@@ -200,7 +200,6 @@ if (isset($_POST["submit"])) {
                 <input type="text" name="ort" placeholder="Ort">
                 <br>
                 <input class="knopfz" type="submit" name="submit" value="Hinzufügen">
-
             </div>
             <button class="knopfz" name="redirect">Zurück</button>
 
