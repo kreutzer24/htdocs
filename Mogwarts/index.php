@@ -11,7 +11,7 @@
     <a  href=""><img src="../img/uni.png"></a>
     <h2 class="logo">MOGWARTS UNIVERSITY</h2>
     <nav class="navigation">
-        <a href="Mogwarts/ladebalken.html">Home</a> 
+        <a href="ladebalken.html">Home</a> 
 
     </nav>
 </header>
