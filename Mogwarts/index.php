@@ -28,21 +28,21 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
 
-            $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = ?");
-            $stmt->bind_param('s', $username);
+            $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
+            $stmt->bindParam('username', $username);
             echo "username: $username";
             $stmt->execute();
-            printf("Error: %s.\n", $stmt->error);
-            $result = $stmt->get_result();
-            $userExists = $result->fetch_assoc();
+            //printf("Error: %s.\n", $stmt->error);
+            //$result = $stmt->get_result();
+            $userExists = $stmt->fetchAll();
 
             if ($userExists) {
                 print_r($userExists);
-                $passwordHashed = $userExists['Passwort'];
+                $passwordHashed = $userExists[0]['Passwort'];
             } else {
                 echo "Benutzer existiert nicht";
             }
-            $stmt->close();
+            //$stmt->close();
 
             $checkPassword = password_verify($password, $passwordHashed);
 
