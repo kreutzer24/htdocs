@@ -40,4 +40,43 @@ WHERE student.Martikelnummer = :userID");
 $stmt->bindParam('userID', $userID);
 $stmt->execute();
 $anzModInStudi = $stmt->fetchAll();
+
+$count = 0;
+for($i = 0; $i < $anzModInStudi; $i++)
+{
+    echo "<table>";
+    echo "
+    <tr class='head'>
+        <th class='tophead' colspan='5'> ". $getModuleAnz[$i][1] . " - ". $getModuleAnz[$i][2] .". Semester </th>
+    </tr>
+    "; 
+    echo "
+    <tr class='head'>
+        <th class='subhead' style='width: 35%;'></th>
+        <th class='subhead' style='width: 15%f;'></th>
+        <th class='subhead' style='width: 10;'></th>
+        <th class='subhead' style='width: 10;'></th>
+        <th class='subhead' style='width: 10;'></th>
+    </tr>
+    ";
+
+    for($j = $count; $j < $getModuleAnz[$i][0] + $count; $j++)
+    {
+        if($modules[$j][4] != null) $completed = //"img width='24px' src='http://localhost/Style/häckchenbild.svg' alt=''/>;
+        else $completed = //"<img width='24px" src='http://localhost/Style/kreuzchen.svg' alt=''/>";
+
+        echo"
+        <tr>
+            <td><a href='".ROOTH."anzVeranstaltung?ID=". $modules[$j][0] ."'>". $modules[$j][1]. "</a></td>
+            <td>".$modules[$j][2]."</td>
+            <td class='center' >".$completed."</td>
+            <td class='center' >".$modules[$j][3]."</td>
+            <td class='center' >".$modules[$j][4]."</td>
+        </tr>
+        ";
+    }
+    echo "</table><br>";
+    $count += $getModuleAnz[$i][0];
+}
+
 ?>
