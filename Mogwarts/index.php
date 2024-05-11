@@ -54,6 +54,8 @@ if (isset($_POST["submit"])) {
                 echo "Unbekannte Benutzerrolle";
                 exit;
             }
+
+            
         } else {
             echo "Login fehlgeschlagen, Passwort stimmt nicht überein!";
         }
