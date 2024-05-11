@@ -14,16 +14,13 @@
         <a href=""><img src="../img/uni.png"></a>
         <h2 class="logo">MOGWARTS UNIVERSITY</h2>
         <nav class="navigation">
-            <a href="#">Home</a>
-            <a href="#">Users</a>
-            <a href="#">Courses</a>
-            <a href="#">Settings</a>
-            <a href="#">Logout</a>
+            <a href="register.php">Registriern eines neuen accounts</a>
+            <a href="login.php">Logout</a>
         </nav>
     </header>
 
     <div class="container">
-        <h1>Welcome, Admin!</h1>
+        <h1>Willkomen, Admin!</h1>
     </div>
 
 </body>

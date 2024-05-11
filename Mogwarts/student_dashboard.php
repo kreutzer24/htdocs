@@ -27,7 +27,7 @@
     <a href='Studigänge.php'>Alle Studiengänge und Veranstaltungen (wip)</a> </br>
 
     <div class="container">
-        <h1>Welcome, Student!</h1>
+        <h1>Willkommen, Student!</h1>
     </div>
 
 </body>
