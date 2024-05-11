@@ -4,7 +4,7 @@ stylesheet hier einfügen
 
 <h1>Modulübersicht</h1>
 <?php
-//original: "Stud_Noten.php"
+//original: "Stud_Noten.php" -
 define ("ROOTH","http://localhost/Mogwarts_db");
 require "connection.php";
 $stmt = $con->prepare("SELECT veranstaltung.veranstalungs_ID, veranstaltung.Bezeichnung, veranstalutngsart.Art, veranstaltung.CP, student_konver.Note
