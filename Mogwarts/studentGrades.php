@@ -7,7 +7,7 @@ stylesheet hier einfügen
 //original: "Stud_Noten.php" -
 define ("ROOTH","http://localhost/Mogwarts_db");
 require "connection.php";
-$stmt = $con->prepare("SELECT veranstaltung.veranstalungs_ID, veranstaltung.Bezeichnung, veranstalutngsart.Art, veranstaltung.CP, student_konver.Note
+$stmt = $con->prepare("SELECT veranstaltung.Veranstalungs_ID, veranstaltung.Bezeichnung, veranstalutngsart.Art, veranstaltung.CP, student_konver.Note
 FROM student
 INNER JOIN studiengang ON student.Studi_ID = studiengang.Studi_ID
 INNER JOIN beinhaltet ON studiengang.Studi_ID = beinhaltet.Studi_ID
