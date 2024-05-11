@@ -28,7 +28,6 @@
 
     <div class="container">
         <h1>Welcome, Student!</h1>
-        <!-- Here you can add content specific to the student dashboard -->
     </div>
 
 </body>
