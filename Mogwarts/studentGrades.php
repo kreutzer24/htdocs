@@ -4,6 +4,8 @@ stylesheet hier einfügen
 
 <h1>Modulübersicht</h1>
 <?php
+//original: "Stud_Noten.php"
+define ("ROOTH","http://localhost/Mogwarts_db");
 require "connection.php";
 $stmt = $con->prepare("SELECT veranstaltung.veranstalungs_ID, veranstaltung.Bezeichnung, veranstalutngsart.Art, veranstaltung.CP, student_konver.Note
 FROM student
@@ -62,7 +64,7 @@ for($i = 0; $i < $anzModInStudi; $i++)
 
     for($j = $count; $j < $getModuleAnz[$i][0] + $count; $j++)
     {
-        if($modules[$j][4] != null) $completed = "img width='24px' src='http://localhost/Style/häckchenbild.svg' alt=''/>";
+        if($modules[$j][4] != null) $completed = "<img width='24px' src='http://localhost/Style/häckchenbild.svg' alt=''/>";
         else $completed = "<img width='24px src='http://localhost/Style/kreuzchen.svg' alt=''/>";
 
         echo"
