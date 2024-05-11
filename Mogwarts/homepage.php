@@ -60,9 +60,10 @@
 <?php
 require "connection.php";
 session_start();
+$user = $_SESSION["CurrentUser"];
 
 $stmt = $con->prepare("SELECT Roll_ID FROM benutzer WHERE Benutzername = :username");
-$stmt->bindParam('username', $_SESSION['username'], PDO::PARAM_STR);
+$stmt->bindParam('username', $_SESSION['CurrentUser'], PDO::PARAM_STR);
 $stmt->execute();
 $role = $stmt->fetchColumn();
 $role = $role[0];
@@ -72,7 +73,7 @@ switch ($role)
     case 1:
         //Student
         echo ("<a href='index.php'>Abmelden</a> </br>");
-                    echo ("<a href= studentprofile.php?ID=$Benutzer[Matrikelnummer]>Profil</a></td>");
+                    echo ("<a href= studentprofile.php?ID=$user[Matrikelnummer]>Profil</a></td>");
                     echo ("<a href='veranstaltungen.php'>Veranstaltungen</a> </br>");
                     echo ("<a href='module.php'>Module</a> </br>");
                     echo ("<a href='Studigänge.php'>Alle Studiengänge und Veranstaltungen</a> </br>");

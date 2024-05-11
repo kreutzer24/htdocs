@@ -3,6 +3,7 @@
 //original: "Profil.php"
 require "connection.php";
 session_start();
+$_SESSION["CurrentUser"];
 $userID = $_GET["ID"];
 
 $stmt = $con->prepare("SELECT student.Martikelnummer, student.Vorname, student.Name, student.Geburtsdatum, student.Geschlecht, student.Konfession, student.Staatsangehörigkeit, studiengang.Bezeichnung, adresse.Straße, adresse.Hausnummer, plz.PLZ, plz.Ort
