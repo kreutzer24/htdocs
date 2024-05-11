@@ -22,7 +22,7 @@
     <div class="umrandung">
         <?php
         require ("connection.php");
-        /*session_start();*/
+        session_start();
 
         if (isset($_POST["submit"])) {
             $username = $_POST["username"];

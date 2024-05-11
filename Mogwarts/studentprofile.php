@@ -1,5 +1,6 @@
 <h1>Dein Profil</h1>
 <?php
+//original: "Profil.php"
 require "connection.php";
 $userID = $_GET["ID"];
 
