@@ -13,17 +13,17 @@
     <header>
         <h2 class="logo">MOGWARTS UNIVERSITY</h2>
         <nav class="navigation">
-            <a href="index.php">login<span></span></a>
+            <a href="index.php">Login<span></span></a>
+            <a href="veranstaltungen.php">Veranstaltungen</a> 
         </nav>
     </header>
 
-    <!-- Hier beginnt der Abschnitt, den man scrollen kann -->
+    
     <div class="scrollable-section">
         <img src="../img/Uni2.png" alt="Mogwarts University">
     </div>
-    <!-- Ende des scrollbaren Abschnitts -->
 
-    <!-- Text am Ende der Seite -->
+ 
     <div class="footer-text">
         <h1>Willkommen bei Mogwarts University!</h1>
         <p>
