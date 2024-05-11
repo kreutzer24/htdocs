@@ -7,7 +7,7 @@ stylesheet hier einfügen
 //original: "Stud_Noten.php" -
 define ("ROOTH","http://localhost/Mogwarts_db");
 require "connection.php";
-
+session_start();
 
 $stmt = $con->prepare("SELECT veranstaltung.Veranstaltungs_ID, veranstaltung.Bezeichnung, veranstaltungsart.Art, veranstaltung.CP, student_konver.Note
 FROM student
