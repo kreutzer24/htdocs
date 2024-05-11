@@ -52,7 +52,7 @@ $_SESSION["CurrenStudent"] = $stmt->fetchAll();
         <nav class="navigation">
             <a href="#">Home</a>
             <a href="#">Courses</a>
-            <a href="studentprofile.php?ID=4">Profile</a>
+            <a href="#">Profile</a>
             <a href="index.php">Logout</a>
         </nav>
     </header>
@@ -63,7 +63,7 @@ $_SESSION["CurrenStudent"] = $stmt->fetchAll();
     <a href='Studigänge.php'>Alle Studiengänge und Veranstaltungen (wip)</a> </br>
 
     <div class="container">
-        <h1>Welcome, Student!</h1>
+        <h1>Willkommen, Student!</h1>
     </div>
 
 </body>

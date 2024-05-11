@@ -20,7 +20,7 @@
 
 <body>
     <div class="umrandung">
-    <?php
+        <?php
 require("connection.php");
 session_start();
 
@@ -54,8 +54,6 @@ if (isset($_POST["submit"])) {
                 echo "Unbekannte Benutzerrolle";
                 exit;
             }
-
-            
         } else {
             echo "Login fehlgeschlagen, Passwort stimmt nicht überein!";
         }
@@ -72,7 +70,6 @@ if (isset($_POST["submit"])) {
                 <input type="text" placeholder="Passwort" name="password" autocomplete="off">
             </div>
             <button class="knopf" name="submit">Einloggen</button>
-            <button class="knopf" name="redirect">Regestrieren</button>
         </form>
 </body>
 
