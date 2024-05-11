@@ -15,6 +15,7 @@ WHERE student.Martikelnummer = :userID");
 $stmt->bindParam("userID", $userID);
 $stmt->execute();
 $studentData = $stmt->fetchAll();
+$_SESSION["CurrenUser"] = $stmt->fetchAll();
 $studentData = $studentData[0];
 
 echo("<p>Martikelnummer: ".$studentData["Martikelnummer"]."</p>");

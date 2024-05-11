@@ -66,9 +66,9 @@ $stmt = $con->prepare("SELECT Roll_ID FROM benutzer WHERE Benutzername = :userna
 $stmt->bindParam('username', $_SESSION['CurrentUser'], PDO::PARAM_STR);
 $stmt->execute();
 $role = $stmt->fetchColumn();
-$role = $role[0];
+// $role = $role[0];
 
-switch ($role)
+switch ($role == 1)
 {
     case 1:
         //Student
@@ -110,14 +110,14 @@ switch ($role)
                     $stmt->execute();
                     $result = $stmt->fetchAll();
  
-                    $query = "SELECT modul.Bezeichnung AS MBEZ, dozent.Name, Konkrete_veranstaltung.Datum
-                    FROM veranstaltung
-                    INNER JOIN modul ON modul.Modul_ID = veranstaltung.Modul_ID
-                    INNER JOIN konkrete_veranstaltung ON konkrete_veranstaltung.Veranstaltungs_ID = veranstaltung.Veranstaltungs_ID
-                    INNER JOIN dozent ON dozent.Dozi_ID = konkrete_veranstaltung.Dozi_ID
-                    INNER JOIN student_konver ON student_konver.KonVer_ID = konkrete_veranstaltung.KonVer_ID
-                    WHERE veranstaltung.Art_ID = 5 AND student_konver.Matrikelnummer = " .$Benutzer['Matrikelnummer']. " AND student_konver.Note = NULL";
-                    $result = $db->execute_query($query);  
+                    // $query = "SELECT modul.Bezeichnung AS MBEZ, dozent.Name, Konkrete_veranstaltung.Datum
+                    // FROM veranstaltung
+                    // INNER JOIN modul ON modul.Modul_ID = veranstaltung.Modul_ID
+                    // INNER JOIN konkrete_veranstaltung ON konkrete_veranstaltung.Veranstaltungs_ID = veranstaltung.Veranstaltungs_ID
+                    // INNER JOIN dozent ON dozent.Dozi_ID = konkrete_veranstaltung.Dozi_ID
+                    // INNER JOIN student_konver ON student_konver.KonVer_ID = konkrete_veranstaltung.KonVer_ID
+                    // WHERE veranstaltung.Art_ID = 5 AND student_konver.Matrikelnummer = " .$Benutzer['Matrikelnummer']. " AND student_konver.Note = NULL";
+                    // $result = $db->execute_query($query);  
                     echo ("<h2><Center>Deine nächsten Prüfungen</h2></Center>");
                     echo ("<h2><Center>");
                     echo ("<table border=1>");
@@ -132,8 +132,18 @@ switch ($role)
                 break;
     case 2:
         //Dozent
+        echo ("<a href='index.php'>Abmelden</a> </br>");
+                    echo ("<a href='studentlist.php'>Studenten Liste</a> </br>");
+                    echo ("<a href='Studigänge.php'>Alle Studiengänge und Veranstaltungen</a> </br>");
+                break;
     case 3:
         //Admin
+        echo ("<a href='index.php'>Abmelden</a> </br>");
+                    echo ("<a href='register.php'>Neuen Account Registrieren</a> </br>");
+                    echo ("<a href='studentlist.php'>Studenten Liste</a> </br>");
+                    echo ("<a href='Studigänge.php'>Alle Studiengänge und Veranstaltungen</a> </br>");
+
+        break;
 }
 
 // $stmt = $con->prepare("SELECT ID FROM benutzer WHERE Benutzername = :username");

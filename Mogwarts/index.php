@@ -27,7 +27,7 @@
         if (isset($_POST["submit"])) {
             $username = $_POST["username"];
             $password = $_POST["password"];
-            $_SESSION["username"] = $username;
+            $_SESSION["username"] = $username;  //<<<<<-----------------!!!!
             
 
             $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
@@ -48,7 +48,7 @@
                 if ($row["Benutzername"] == $row["Benutzername"])
                 {
                     session_start();
-                    $_SESSION["user"] = $row["user"];
+                    $_SESSION["username"] = $row["username"];
 
                     header("ladebalken.html");
                     exit;
