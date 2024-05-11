@@ -14,7 +14,7 @@ INNER JOIN beinhaltet ON studiengang.Studi_ID = beinhaltet.Studi_ID
 INNER JOIN modul ON behinhaltet.Modul_ID = modul.Modul_ID
 INNER JOIN veranstaltung ON Modul.Modul_ID = veranstaltung.Modul_ID
 INNER JOIN veranstaltungsart ON veranstaltung.Art_ID = veranstaltungsart.Art_ID
-LEFT JOIN konkrete_veranstaltung ON veranstaltung.veranstaltungs_ID = konkrete_veranstaltung.veranstaltungs_ID
+LEFT JOIN konkrete_veranstaltung ON veranstaltung.Veranstaltungs_ID = konkrete_veranstaltung.veranstaltungs_ID
 LEFT JOIN student_konver ON konkrete_veranstaltung.konver_ID = student_konver.konver_ID
 WHERE  student.Martikelnummer = :userID
 GROUP BY veranstaltung.Veranstaltungs_ID
