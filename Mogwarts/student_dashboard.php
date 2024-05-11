@@ -14,9 +14,6 @@
         <a href=""><img src="../img/uni.png"></a>
         <h2 class="logo">MOGWARTS UNIVERSITY</h2>
         <nav class="navigation">
-            <a href="#">Home</a>
-            <a href="#">Courses</a>
-            <a href="#">Profile</a>
             <a href="index.php">Logout</a>
         </nav>
     </header>
