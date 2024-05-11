@@ -5,20 +5,22 @@ require "connection.php";
 session_start();
 $_SESSION["CurrentUser"];
 $userID = $_GET["ID"];
+echo "$userID";
 
-$stmt = $con->prepare("SELECT student.Martikelnummer, student.Vorname, student.Name, student.Geburtsdatum, student.Geschlecht, student.Konfession, student.Staatsangehörigkeit, studiengang.Bezeichnung, adresse.Straße, adresse.Hausnummer, plz.PLZ, plz.Ort
+$stmt = $con->prepare("SELECT student.Matrikelnummer, student.Vorname, student.Name, student.Geburtsdatum, student.Geschlecht, student.Konfession, student.Staatsangehörigkeit, studiengang.Bezeichnung, adresse.Straße, adresse.Hausnummer, plz.PLZ, plz.Ort
 FROM student
 INNER JOIN studiengang ON student.Studi_ID = studiengang.Studi_ID
-INNER JOIN adresse ON student.Adress_ID = adresse.Adresse_ID
+INNER JOIN adresse ON student.Adress_ID = adresse.Adress_ID
 INNER JOIN PLZ ON plz.PLZ = adresse.PLZ
-WHERE student.Martikelnummer = :userID");
+WHERE student.Matrikelnummer = :userID");
 $stmt->bindParam("userID", $userID);
 $stmt->execute();
 $studentData = $stmt->fetchAll();
 $_SESSION["CurrenUser"] = $stmt->fetchAll();
-$studentData = $studentData[0];
+print_r($studentData);
 
-echo("<p>Martikelnummer: ".$studentData["Martikelnummer"]."</p>");
+
+echo("<p>Matrikelnummer: ".$studentData["Matrikelnummer"]."</p>");
 echo("<p>Vorname: ".$studentData["Vorname"]."</p>");
 echo("<p>Nachname: ".$studentData["Nachname"]."</p>");
 echo("<p>Geburtsdatum: ".$studentData["Geburtsdatum"]."</p>");
@@ -31,17 +33,17 @@ echo("<p>Adresse: ".$studentData["Adresse"]."</p>");
 $stmt = $con->prepare("SELECT SUM(CP) AS GESCP FROM student_konver
 INNER JOIN konkrete_veranstaltung ON student_konver.KonVer_ID = konkrete_veranstaltung.KonVer_ID
 INNER JOIN veranstaltung ON konkrete_veranstaltung.Veranstaltungs_ID = veranstaltung.Veranstaltung_ID
-WHERE student_konver.Martikelnummer = :userID");
+WHERE student_konver.Matrikelnummer = :userID");
 $stmt->bindParam("userID", $userID);
 $gesCP = $stmt->fetchColumn();
 
 echo("<p>Gesamte CP: ".$gesCP."</p>");
 
 $stmt = $con->prepare("SELECT student_konver.Note, konkrete_veranstaltung.Datum, veranstaltung.Bezeichnung, veranstaltung.CP FROM student
-INNER JOIN student_konver ON student.Martikelnummer = student_konver.Martikelnummer
+INNER JOIN student_konver ON student.Matrikelnummer = student_konver.Matrikelnummer
 INNER JOIN konkrete_veranstaltung ON student_konver.KonVer_ID = konkrete_Veranstaltung.KonVer_ID
 INNER JOIN veranstaltung ON konkrete_veranstalung.Veranstaltungs_ID = veranstaltung.Veranstaltungs_ID
-WHERE student.Martikelnummer = :userID");
+WHERE student.Matrikelnummer = :userID");
 $stmt->bindParam("userID", $userID);
 $stmt->execute();
 $Leistugnen = $stmt->fetchColumn();

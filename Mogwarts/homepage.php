@@ -86,6 +86,7 @@ switch ($role == 1)
                     $stmt->bindParam("userMatnum", $user['Martrikelnummer']);
                     $stmt->execute();
                     $result = $stmt->fetchAll();
+                    $gesCP = $result;
  
                     // $query = "SELECT SUM(CP) AS GESCP
                     // FROM student_konver
