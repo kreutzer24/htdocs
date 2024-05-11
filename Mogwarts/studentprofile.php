@@ -41,9 +41,11 @@ INNER JOIN konkrete_veranstaltung ON student_konver.KonVer_ID = konkrete_Veranst
 INNER JOIN veranstaltung ON konkrete_veranstalung.Veranstaltungs_ID = veranstaltung.Veranstaltungs_ID
 WHERE student.Martikelnummer = :userID");
 $stmt->bindParam("userID", $userID);
-$Leistungen = $stmt;
+$stmt->execute();
+$result = $stmt->fetchAll();
 
-for($i = 0; $i < $Leistungen->num_rows; $i++)
+
+for($i = 0; $i < $Leistungen->num_rows(); $i++)
 {
     $LeistungenRow = $Leistungen->fetch();
     echo "<br><br>";

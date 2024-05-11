@@ -38,6 +38,23 @@
             //$result = $stmt->get_result();
             $userExists = $stmt->fetchAll();
 
+            $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
+            $stmt->bindParam("username", $username);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+
+            foreach ($result as $row)
+            {
+                if ($row["Benutzername"] == $row["Benutzername"])
+                {
+                    session_start();
+                    $_SESSION["user"] = $row["user"];
+
+                    header("ladebalken.html");
+                    exit;
+                }
+            }
+
             if ($userExists) {
                 print_r($userExists);
                 $passwordHashed = $userExists[0]["Passwort"];
