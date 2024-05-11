@@ -27,6 +27,8 @@
         if (isset($_POST["submit"])) {
             $username = $_POST["username"];
             $password = $_POST["password"];
+            $_SESSION["username"] = $username;
+            
 
             $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
             $stmt->bindParam('username', $username);
@@ -38,7 +40,7 @@
 
             if ($userExists) {
                 print_r($userExists);
-                $passwordHashed = $userExists[0]['Passwort'];
+                $passwordHashed = $userExists[0]["Passwort"];
             } else {
                 echo "Benutzer existiert nicht";
             }
@@ -52,6 +54,7 @@
             if ($checkPassword === true) {
                 header("Location: homepage.php");
             }
+            
         }
 
         ?>

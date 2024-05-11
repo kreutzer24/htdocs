@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT);
     $role = $_POST["role"];
-    //$st_course = $_POST["st_course"];
+    $st_course = $_POST["st_course"];
     $name = $_POST["name"];
     $sirname = $_POST["sirname"];
     $bday = $_POST["bday"];
@@ -113,7 +113,7 @@ if (isset($_POST["submit"])) {
         //     $st_course,
         //     $userAdressID
         $stmt->execute();
-        printf("Error: %s.\n", $stmt->error);
+        //printf("Error: %s.\n", $stmt->error);
     } else
         if ($role === '2') {
             $stmt = $con->prepare("INSERT INTO dozent (Vorname, Name, Geburtsdatum, Geschlecht, Konfession, Staatsangehörigkeit, ID, Adress_ID) VALUE (:vorname, :namen, :geburtsdatum, :geschlecht, :konfession, :staatsangehoerigkeit, :id, :adressID)");
@@ -126,7 +126,7 @@ if (isset($_POST["submit"])) {
             $stmt->bindParam('id', $userID);
             $stmt->bindParam('adressID', $userAdressID);
             $stmt->execute();
-            printf("Error: %s.\n", $stmt->error);
+            //printf("Error: %s.\n", $stmt->error);
         } else
             if ($role === '3') {
                 $stmt = $con->prepare("INSERT INTO dozent (Vorname, Name, Geburtsdatum, Geschlecht, Konfession, Staatsangehörigkeit, ID, Adress_ID) VALUE (:vorname, :namen, :geburtsdatum, :geschlecht, :konfession, :staatsangehoerigkeit, :id, :adressID)");
@@ -139,7 +139,7 @@ if (isset($_POST["submit"])) {
                 $stmt->bindParam('id', $userID);
                 $stmt->bindParam('adressID', $userAdressID);
                 $stmt->execute();
-                printf("Error: %s.\n", $stmt->error);
+                //printf("Error: %s.\n", $stmt->error);
             }
 }
 
@@ -173,7 +173,7 @@ if (isset($_POST["submit"])) {
                     <option value="2" name="dozent" required>Dozent</option>
                     <option value="3" name="admin" requrired>Admin</option>
                 </select>
-
+                <input type="text" placeholder="Studiengang" name="st_course" autocomplete="on">
                 <br>
                 <br>
                 <!--Personen bezogene Daten (Student/ Dozent) -->

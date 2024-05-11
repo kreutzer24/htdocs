@@ -48,3 +48,21 @@
 </body>
 
 </html>
+
+<?php
+require "connection.php";
+session_start();
+
+// $stmt = $con->prepare("SELECT ID FROM benutzer WHERE Benutzername = :username");
+// $stmt->bindParam('username', $_SESSION["username"]);
+// $stmt->execute();
+// $userData = $stmt->fetchColumn(1);
+// $userID = $userData['ID'];
+
+// $stmt = $con->prepare("SELECT Matrikelnummer FROM student 
+// INNER JOIN student ON benutzer.ID = student.ID
+// WHERE student.ID = :userID");
+// $stmt->bindParam('userID', $userID);
+// $stmt->execute();
+// echo "userID: $userID";
+?>
