@@ -20,61 +20,49 @@
 
 <body>
     <div class="umrandung">
-        <?php
-        require ("connection.php");
-        session_start();
+    <?php
+require("connection.php");
+session_start();
 
-        if (isset($_POST["submit"])) {
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-            $_SESSION["username"] = $username;  //<<<<<-----------------!!!!
-            
+if (isset($_POST["submit"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-            $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
-            $stmt->bindParam('username', $username);
-            echo "username: $username";
-            $stmt->execute();
-            //printf("Error: %s.\n", $stmt->error);
-            //$result = $stmt->get_result();
-            $userExists = $stmt->fetchAll();
+    $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
+    $stmt->bindParam('username', $username);
+    $stmt->execute();
+    $result = $stmt->fetch();
 
-            $stmt = $con->prepare("SELECT * FROM benutzer WHERE Benutzername = :username");
-            $stmt->bindParam("username", $username);
-            $stmt->execute();
-            $result = $stmt->fetchAll();
+    if ($result) {
+        $passwordHashed = $result["Passwort"];
+        $checkPassword = password_verify($password, $passwordHashed);
 
-            foreach ($result as $row)
-            {
-                if ($row["Benutzername"] == $row["Benutzername"])
-                {
-                    session_start();
-                    $_SESSION["username"] = $row["username"];
+        if ($checkPassword === true) {
+            $_SESSION["username"] = $username;
+            $_SESSION["role"] = $result["Roll_ID"]; // Speichere die Rolle des Benutzers in der Sitzung
 
-                    header("ladebalken.html");
-                    exit;
-                }
-            }
-
-            if ($userExists) {
-                print_r($userExists);
-                $passwordHashed = $userExists[0]["Passwort"];
+            if ($_SESSION["role"] == 1) {
+                header("Location: student_dashboard.php");
+                exit;
+            } elseif ($_SESSION["role"] == 2) {
+                header("Location: dozent_dashboard.php");
+                exit;
+            } elseif ($_SESSION["role"] == 3) {
+                header("Location: admin_dashboard.php");
+                exit;
             } else {
-                echo "Benutzer existiert nicht";
+                echo "Unbekannte Benutzerrolle";
+                exit;
             }
-            //$stmt->close();
-
-            $checkPassword = password_verify($password, $passwordHashed);
-
-            if ($checkPassword === false) {
-                echo "Login fehlgeschlagen, Passwort stimmt nicht überein!";
-            }
-            if ($checkPassword === true) {
-                header("Location: homepage.php");
-            }
-            
+        } else {
+            echo "Login fehlgeschlagen, Passwort stimmt nicht überein!";
         }
+    } else {
+        echo "Benutzer existiert nicht";
+    }
+}
+?>
 
-        ?>
         <form action="index.php" method="POST">
             <h1>Einloggen</h1>
             <div class="input_container">
