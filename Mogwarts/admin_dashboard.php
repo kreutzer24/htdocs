@@ -24,7 +24,6 @@
 
     <div class="container">
         <h1>Welcome, Admin!</h1>
-        <!-- Hier können Sie spezifische Inhalte für das Admin-Dashboard hinzufügen -->
     </div>
 
 </body>

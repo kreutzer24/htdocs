@@ -23,7 +23,6 @@
 
     <div class="container">
         <h1>Welcome, Dozent!</h1>
-        <!-- Here you can add content specific to the dozent dashboard -->
     </div>
 
 </body>
