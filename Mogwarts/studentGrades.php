@@ -62,8 +62,8 @@ for($i = 0; $i < $anzModInStudi; $i++)
 
     for($j = $count; $j < $getModuleAnz[$i][0] + $count; $j++)
     {
-        if($modules[$j][4] != null) $completed = //"img width='24px' src='http://localhost/Style/häckchenbild.svg' alt=''/>;
-        else $completed = //"<img width='24px" src='http://localhost/Style/kreuzchen.svg' alt=''/>";
+        if($modules[$j][4] != null) $completed = "img width='24px' src='http://localhost/Style/häckchenbild.svg' alt=''/>";
+        else $completed = "<img width='24px src='http://localhost/Style/kreuzchen.svg' alt=''/>";
 
         echo"
         <tr>
