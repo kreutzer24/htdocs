@@ -139,7 +139,7 @@ if (isset($_POST["submit"])) {
                 $stmt->bindParam('id', $userID);
                 $stmt->bindParam('adressID', $userAdressID);
                 $stmt->execute();
-                printf("Error: %s.\n", $stmt->error);
+                //printf("Error: %s.\n", $stmt->error);
             }
 }
 
