@@ -15,6 +15,7 @@
         <nav class="navigation">
             <a href="index.php">Login<span></span></a>
             <a href="veranstaltungen.php">Veranstaltungen</a> 
+            <a href="module.php">module</a>
         </nav>
     </header>
     <head>
