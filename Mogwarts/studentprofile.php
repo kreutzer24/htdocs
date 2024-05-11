@@ -42,7 +42,7 @@ INNER JOIN veranstaltung ON konkrete_veranstalung.Veranstaltungs_ID = veranstalt
 WHERE student.Martikelnummer = :userID");
 $stmt->bindParam("userID", $userID);
 $stmt->execute();
-$result = $stmt->fetchAll();
+$Leistugnen = $stmt->fetchColumn();
 
 
 for($i = 0; $i < $Leistungen->num_rows(); $i++)
@@ -52,3 +52,10 @@ for($i = 0; $i < $Leistungen->num_rows(); $i++)
     echo $LeistungenRow["Bezeichnung"] . "+++" . $LeistungenRow["Datum"] . "+++" . $LeistungenRow["CP"]. "";
 }
 ?>
+<html>
+<section class="header">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</html>
