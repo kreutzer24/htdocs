@@ -15,7 +15,7 @@
         <h2 class="logo">MOGWARTS UNIVERSITY</h2>
         <nav class="navigation">
             <a href="register.php">Registriern eines neuen accounts</a>
-            <a href="login.php">Logout</a>
+            <a href="index.php">Logout</a>
         </nav>
     </header>
 
