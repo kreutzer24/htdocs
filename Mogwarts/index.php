@@ -67,7 +67,7 @@ if (isset($_POST["submit"])) {
             <h1>Einloggen</h1>
             <div class="input_container">
                 <input type="text" placeholder="Benutzername" name="username" autocomplete="off">
-                <input type="text" placeholder="Passwort" name="password" autocomplete="off">
+                <input type="password" placeholder="Passwort" name="password" autocomplete="off">
             </div>
             <button class="knopf" name="submit">Einloggen</button>
         </form>
