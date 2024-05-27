@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
        
         $sql = "SELECT * FROM student WHERE Vorname LIKE '%$search%' OR Name LIKE '%$search%'";
 
-        $result = $conn->query($sql);
+        $result = $con->query($sql);
 
         
         if ($result->num_rows > 0) {
@@ -62,5 +62,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 }
 
-$conn->close();
+$con->close();
 ?>
