@@ -37,7 +37,7 @@ require("connection.php");
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-   e
+   
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $search = $_GET['search'];
 
